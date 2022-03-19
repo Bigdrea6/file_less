@@ -2,14 +2,14 @@
 
 import re
 
-data = 'This is an ("{1}{0}{2}" -f"AMP","EX", "LE")'
+data = 'This is an ("{1}{0}{2}" -F"AMP","EX", "LE")'
 
 def formatReplace(contentData):
 
-    if(re.search(r"-(f|F)", contentData)):
+    if(re.search(r"-f", contentData, re.IGNORECASE)):
         exchange_index = re.findall(r"\"(\{.*\})\"", contentData)
         # print("hey")
-        # print(exchange_index)
+        print(exchange_index)
         exchange_index = (re.findall(r"\{\d\}", exchange_index[0]))
         brackets = "\{\}"
         for i in range(len(exchange_index)):
@@ -18,7 +18,7 @@ def formatReplace(contentData):
         print(exchange_index)
         # ['1', '0', '2']
 
-        exchange_sentence = re.findall(r"-f\".*\)", contentData)
+        exchange_sentence = re.findall(r"-f\".*\)", contentData, re.IGNORECASE)
         exchange_components = re.findall(r"\".*?\"", exchange_sentence[0])
         print(exchange_components)
         # ['"AMP","EX", "LE"']
