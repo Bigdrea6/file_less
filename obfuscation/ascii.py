@@ -7,7 +7,7 @@ def formatAscii(data):
     #i = 0
     asciis = re.findall(r'\+*\[char\](0x)*\d+\s*\+*', data)
     print(asciis)
-    # ['char[84]', 'char[115]', 'char[105]', 'char[33]']
+    ['[char]84+', '+[char]115+', '[char]105+', '+[char]33']
 
     for c in asciis:
         num = re.search(r'\d+', c)
