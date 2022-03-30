@@ -5,7 +5,7 @@ data = "[char]84+hi+[char]115+ [char]105+s an example+[char]33"
 def formatAscii(data):
     #numbox = []
     #i = 0
-    asciis = re.findall(r'\+*\[char\](0x)*\d+\s*\+*', data)
+    asciis = re.findall(r'\+*\[char\]\d+\s*\+*', data)
     print(asciis)
     #['[char]84+', '+[char]115+', '[char]105+', '+[char]33']
 
