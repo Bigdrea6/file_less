@@ -3,7 +3,7 @@ import re
 data = " 'Thid id'.replace('d','s') an example"
 
 def formatReplace(data):
-    rep = re.findall(r"\'.+\'\.replace\(\'.\'\,\'.\'\)", data)
+    rep = re.findall(r"\'.+\'\.replace\(\'.\'\,\'.\'\)", data, re.IGNORECASE)
     print(rep)
     #["'Thid id'.replace('d','s')"]
     before = re.findall(r"\'.+?\'\.", rep[0])[0]
