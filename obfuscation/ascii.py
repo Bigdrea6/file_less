@@ -1,5 +1,6 @@
 import re
 
+
 data = "[char]84+hi+[char]115+ [char]105+s an example+[char]33"
 
 def formatAscii(data):
