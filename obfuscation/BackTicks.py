@@ -2,9 +2,9 @@
 
 import re
 
-data = 'th`nis`\
-i`s te`\
-st data.'
+#data = 'th`nis`\
+#i`s te`\
+#st data.'
 
 
 
@@ -28,7 +28,4 @@ def backticks(data):
                 pass
         else:
             result.append(data_list[i])
-    print(result)
-
-backticks(data)
-#['t', 'h', 'i', 's', 'i', 's', ' ', 't', 'e', 's', 't', ' ', 'd', 'a', 't', 'a', '.', ' ']
+    return(result)
