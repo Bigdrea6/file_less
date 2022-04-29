@@ -1,19 +1,16 @@
 import gzip, base64
 import re
 
-data = 'New-Object IO.Compression.GzipStream([IO.MemoryStream][Convert]::FromBase64String("H4sIAKacLWIC/0utSMwtyEkFAJ+b7G4HAAAA"), [IO.Compression.CompressionMode]::Decompress)'
-
 def gzip_dec(content_data):
     if re.search(r"New-Object.+gzip.+Decompress\)", content_data, re.IGNORECASE):
-        if re.search(r".+base64.+", content_data, re.IGNORECASE):
-            enc_data = re.findall(r"\".+\"", content_data)
-            b64_dec = base64.b64decode(enc_data[0][1:-1])
-            return gzip.decompress(b64_dec)
-        
-        else:
-            compress_data = re.findall(r"\(.+\,", content_data)
-            return gzip.decompress(compress_data[0][1:-1])
+        enc_data = re.findall(r"GzipStream\(.+Decompress\)", content_data, re.IGNORECASE)
 
-dec_data = gzip_dec(data)
-print(dec_data)
-# example
+        if re.search(r".+base64.+", content_data, re.IGNORECASE):
+            enc_data = re.findall(r"\".+\"", enc_data[0])
+            b64_dec = base64.b64decode(enc_data[0][1:-1])
+            result = gzip.decompress(b64_dec)
+            result = result.decode()
+
+    after_replace = re.sub(r"New-Object IO.Compression.GzipStream\(.+Decompress\)", result.decode(), content_data)
+
+    return (after_replace)
