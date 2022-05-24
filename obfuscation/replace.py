@@ -1,11 +1,11 @@
 import re
 
 
-def formatreplace(data):
-    rep = re.findall(r"\"\w+?\"\.replace\(\".\"\,\".\"\)", data, re.IGNORECASE)
+def format_replace(content_data):
+    target = re.findall(r"\"\w+?\"\.replace\(\".\"\,\".\"\)", content_data, re.IGNORECASE)
     
-    before = re.findall(r"\".+?\"\.", rep[0])[0]
-    key = re.findall(r"\(\".\"\,\".\"\)",rep[0])
+    before = re.findall(r"\".+?\"\.", target[0])[0]
+    key = re.findall(r"\(\".\"\,\".\"\)",target[0])
     
     b = re.findall(r"[a-zA-Z]",key[0])
     
@@ -13,6 +13,6 @@ def formatreplace(data):
     after = after.replace(".", "")
     after = after.replace("'", "")
 
-    data = data.replace(rep[0], after)
+    after_replace = content_data.replace(target[0], after)
 
-    return (data)
+    return (after_replace)
