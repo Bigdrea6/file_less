@@ -2,7 +2,7 @@ import os.path
 import argparse
 import xml.etree.ElementTree as ET
 import re
-import dictionary2 as di
+import obfuscation/dictionary as di
 
 # Windows Command to generate the XML file
 # wevtutil query-events "Windows Powershell" /uni:true /f:XML > winps.xml
