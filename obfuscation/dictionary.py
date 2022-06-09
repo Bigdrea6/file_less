@@ -1,10 +1,10 @@
 import re
 from winreg import REG_FULL_RESOURCE_DESCRIPTOR
 import ascii
-import backticks as back
+import Back_Ticks as back
 import base64_decode as base 
 import plus_division as plus
-import reorder as reorder
+import Reorder as reorder
 import replace
 import gzip_dec as gzip
 
@@ -26,11 +26,16 @@ dec_func = {0:gzip.gzip_dec, 1:base.base64_dec, 2:ascii.formatAscii, 3:replace.f
 
 
 def check(data):
-    for i in range(len(dec_array)):
-        if dec_array[i].match(data):
-            #print(dec_array[i])
-            data = dec_func[i](data)
-            #print(data)
-    print(data)
+    while(True): # 変更が一回もなければ完了したとみなす
+        changed = 0
+        for i in range(len(dec_array)):
+            if dec_array[i].match(data):
+                #print(dec_array[i])
+                data = dec_func[i](data)
+                changed = 1
+                #print(data)
+        if changed == 0:
+            break
+        print(data)
 
 check(data)
