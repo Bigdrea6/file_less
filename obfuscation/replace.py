@@ -1,6 +1,5 @@
 import re
 
-# content_data = '$searcher = (New-Object System.Management.ManagementObjectSearcher((Binary2String(",.,.,,..,..,,.,.,..,..,,,..,,.,.,..,,,..,...,.,,,,.,,,,,,,.,.,.,,,.,,,,,,..,,..,,...,,.,,..,....,..,..,.,,.,,,,,,.,.,...,..,.,,.,..,...,,,..,,..,,..,,.,,.,.....,.,,,,..,..,....,..,..,.,...,,,,,...,.,.,...,.,,,..,,.,.,...,,.,,.,.,,..,....,,.,...,,..,...,.,,,..,,.,.,..,..,.".Replace(",", "0").Replace(".", "1")))))'
 
 def format_replace(content_data):
     target = re.findall(r"\".+?\"\.Replace\(.+?\)", content_data, re.IGNORECASE)
@@ -19,5 +18,3 @@ def format_replace(content_data):
     
     print(after_replace)
     return (after_replace)
-
-# format_replace(content_data)
