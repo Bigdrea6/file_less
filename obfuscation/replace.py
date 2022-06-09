@@ -18,6 +18,6 @@ def format_replace(content_data):
     after_replace = content_data.replace(target[0], after)
     
     print(after_replace)
-    # return (after_replace)
+    return (after_replace)
 
 # format_replace(content_data)
