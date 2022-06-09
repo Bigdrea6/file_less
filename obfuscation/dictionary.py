@@ -1,10 +1,9 @@
 import re
-from winreg import REG_FULL_RESOURCE_DESCRIPTOR
 import ascii
-import Back_Ticks as back
-import base64_decode as base 
+import backticks as back
+import base64_cipher as base 
 import plus_division as plus
-import Reorder as reorder
+import reorder as reorder
 import replace
 import gzip_dec as gzip
 
