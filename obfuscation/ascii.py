@@ -7,6 +7,6 @@ def format_ascii(content_data):
     for c in target:
         num = re.search(r'\d+', c)
         chrs = chr(int(num.group()))
-        after_replace = after_replace.replace(c, chrs)
+        after_replace = content_data.replace(c, chrs)
     
     return (after_replace)
