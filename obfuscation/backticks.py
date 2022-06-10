@@ -1,7 +1,5 @@
 import re
 
-simbol = ["$", "&", "'", '"', "'" ]
-
 def backticks(content_data):
     content_data = list(content_data)
     result = []
